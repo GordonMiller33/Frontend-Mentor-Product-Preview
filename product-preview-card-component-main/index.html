@@ -19,6 +19,7 @@
       background-color: white;
       min-width: 375px;
       max-width: 700px;
+      max-height: 500px;
       border-radius: 15px;
       overflow: hidden;
     }
@@ -36,12 +37,43 @@
       font-family:'Montserrat', serif;
       font-size:14px;
     }
+    .card-text strike{
+      font-weight: 700;
+    }
     .card-text h1{
       font-family:'Fraunces', serif;
       font-size: 40px;
     }
     .price-block{
-      display:inline;
+      display: inline-flex;
+      justify-content: space-around;
+      width:95%;
+    }
+    .display-image{
+      max-width:350px;
+    }
+    @media screen and (max-width: 720px) {
+      .card-container {
+        display: initial;
+        max-height: unset;
+        min-width: 350px;
+        max-width: 500px;
+      }
+      .display-image{
+        max-width:500px;
+      }
+    }
+    .cart-button{
+      width:80%;
+      padding:20px;
+      background-color:green;
+      border:none;
+      color:white;
+      border-radius:10px;
+      transition-duration: 0.3s;
+    }
+    .cart-button:hover{
+      background-color:lawngreen;
     }
 
   </style>
@@ -50,7 +82,11 @@
   <div class="content-centered" style="height:96vh">
     <div class="card-container">
       <div>
-        <img src="images/image-product-desktop.jpg" style="width: 350px;"></img>
+        <picture>
+          <source srcset="images/image-product-mobile.jpg" media="(max-width: 720px)">
+          <source srcset="images/image-product-desktop.jpg" media="(max-width: 1500px)">
+          <img src="images/image-product-desktop.jpg" class="display-image"></img>
+        </picture>
       </div>
       <div class="card-text">
         P E R F U M E
@@ -63,14 +99,16 @@
         <br>
 
         <div class="price-block content-centered">
-          $149.99
-
-          $169.99
+          <h1>$149.99</h1>
+          <strike>$169.99</strike>
         </div>
 
         <br>
+        <div style="display:flex;justify-content:center">
 
-        Add to Cart
+         <button class="cart-button">  Add to Cart </button>
+        </div>
+
     </div>
   </div>
   </div>
